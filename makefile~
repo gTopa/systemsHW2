@@ -1,0 +1,5 @@
+listtest: listHW.c
+	gcc linkedlist.c -o listtest
+
+run: listtest
+	./listtest
