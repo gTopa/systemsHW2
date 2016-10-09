@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {int i; struct node *next;};
+
+int print_list(struct node *start){
+  while(start->next){
+    printf("%d, ", start->i);
+    start=start->next;
+  }
+  printf("%d\n", start->i);
+  return 0;
+}
+
+/*node * insert_front(){
+  
+}
+node * free_list(){
+
+}
+*/
+int main(){
+  struct node *t1;
+  t1=(struct node *)malloc(sizeof(struct node));
+  t1->i=1;
+  t1->next=(struct node *)malloc(sizeof(struct node));
+  t1->next->i=2;
+  t1->next->next=NULL;
+  print_list(t1);
+
+  return 0;
+}
