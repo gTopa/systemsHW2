@@ -16,10 +16,11 @@ int print_list(struct node *start){
   return 0;
 }
 
-struct node * insert_front(struct node *new, struct node *start){
-  new->next=start;
-  start=new;
-  return start;
+struct node * insert_front(struct node *n, int i){
+  struct node *new=(struct node *)malloc(sizeof(struct node));
+  new->i=i;
+  new->next=n;
+  return new;
 }
 
 
@@ -38,14 +39,13 @@ int main(){
   struct node *t1;
   t1=(struct node *)malloc(sizeof(struct node));
   t1->i=1;
-  t1->next=(struct node *)malloc(sizeof(struct node));
-  t1->next->i=2;
-  t1->next->next=NULL;
+  struct node *t3;
+  t3=(struct node *)malloc(sizeof(struct node));
+  t3->i=2;
+  t3->next=NULL;
+  t1->next=t3;
   print_list(t1);
-  struct node *t2;
-  t2=(struct node *)malloc(sizeof(struct node));
-  t2->i=0;
-  t1=insert_front(t2, t1);
+  t1=insert_front(t1, 1);
   print_list(t1);
   t1=free_list(t1);
   print_list(t1);
